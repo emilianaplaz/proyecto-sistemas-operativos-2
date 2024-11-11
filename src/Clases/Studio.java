@@ -11,36 +11,30 @@ import EDD.Cola;
  * @author emilianaplaz
  */
 public class Studio {
+
     private String name;
-//    private int IdCh=0;
     private Cola prioridad1;
     private Cola prioridad2;
     private Cola prioridad3;
     private Cola refuerzo;
-    private int ganados=0;
+    private int ganados = 0;
 
     public Studio(String name) {
         this.name = name;
-        this.prioridad1=new Cola();
-        this.prioridad2=new Cola();
-        this.prioridad3=new Cola();
-        this.refuerzo=new Cola();
+        this.prioridad1 = new Cola();
+        this.prioridad2 = new Cola();
+        this.prioridad3 = new Cola();
+        this.refuerzo = new Cola();
     }
-    
-    public void CreateCharacter(String name, String Object, int id){
-        Character personaje=new Character(name,Object,id);
+
+    public void CreateCharacter(String name, String Object, int id) {
+        Character personaje = new Character(name, Object, id);
         personaje.CalcularStats();
-        if (personaje.getNivel()==1){
-            prioridad1.encolar(personaje);
+        switch (personaje.getNivel()) {
+            case 1 -> prioridad1.encolar(personaje);
+            case 2 -> prioridad2.encolar(personaje);
+            case 3 -> prioridad3.encolar(personaje);
         }
-        else if (personaje.getNivel()==2) {
-            prioridad2.encolar(personaje);
-        }
-        else if (personaje.getNivel()==3) {
-            prioridad3.encolar(personaje);
-        }
-        //System.out.println("personaje creado, id: "+personaje.getId()+" nombre "+personaje.getName()+" stats:\nAgilidad: "+personaje.getAgilidad()+"\nFuerza: "+personaje.getFuerza()+"\nHabilidad: "+personaje.getHabilidad()+"\nHP: "+personaje.getHp());
-        //setIdCh(getIdCh()+1);
     }
 
     public String getName() {
@@ -50,14 +44,6 @@ public class Studio {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public int getIdCh() {
-//        return IdCh;
-//    }
-//
-//    public void setIdCh(int IdCh) {
-//        this.IdCh = IdCh;
-//    }
 
     public Cola getPrioridad1() {
         return prioridad1;
@@ -99,9 +85,4 @@ public class Studio {
         this.ganados = ganados;
     }
 
-
-    
-    
-    
-    
 }

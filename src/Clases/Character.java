@@ -120,7 +120,6 @@ public class Character {
            this.hp+=4;
            this.agilidad+=2;
        }
-       
     
     }
 
@@ -203,9 +202,4 @@ public class Character {
     public void setAgilidad(int agilidad) {
         this.agilidad = agilidad;
     }
-
-    
-    
-    
-    
 }

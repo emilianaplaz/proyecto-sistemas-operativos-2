@@ -78,15 +78,13 @@ public class Cola {
        return null; 
     }
     
-    public void subir_contador() {
+    public void subirContador() {
         //se recorre la cola
         for (Nodo aux=getFirst(); aux!=null; aux=aux.getNext()) {
             if(aux.getElement().getCounter()<8){//si el contador es menor a 8 sube
                 aux.getElement().setCounter(aux.getElement().getCounter()+1);//se suma 1 al contador 
                // System.out.println("contado nuevo: "+aux.getElement().getCounter()+" nombre "+aux.getElement().getName()+" id "+aux.getElement().getId() );
             }
-            
-            
         }
     
     }
