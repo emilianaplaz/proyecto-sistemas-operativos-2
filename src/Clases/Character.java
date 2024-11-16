@@ -75,48 +75,46 @@ public class Character {
            this.agilidad++;
        }
        
-       else if(this.object.compareTo("La fuerza")==0) {
+       else if(this.object.compareTo("La Fuerza")==0) {
            this.habilidad+=3;
            this.agilidad+=2;
            this.fuerza++;
        }
        
-       else if(this.object.compareTo("Lasers")==0){
+       else if(this.object.compareTo("Blaster")==0){
            this.agilidad+=4;
            this.hp+=2;
            this.habilidad+=2;
        }
        
-       else if(this.object.compareTo("nose")==0){
+       else if(this.object.compareTo("Phaser")==0){
            this.fuerza+=2;
            this.hp+=2;
-           //this.habilidad++;
        }
        
-       else if(this.object.compareTo("nose")==0){
+       else if(this.object.compareTo("Espada Bat´telh")==0){
            this.agilidad+=3;
            this.fuerza+=2;
-          // this.habilidad+=2;
        }
        
-       else if(this.object.compareTo("nose")==0){
+       else if(this.object.compareTo("Lirpa")==0){
            this.hp+=2;
            this.fuerza+=4;
            this.agilidad+=3;
        }
-       else if(this.object.compareTo("nose")==0){
+       else if(this.object.compareTo("Puñal D´kTahg")==0){
            this.agilidad+=4;
            this.habilidad+=2;
            this.hp+=2;
        }
        
-       else if(this.object.compareTo("nose")==0){
+       else if(this.object.compareTo("Látigo láser")==0){
            this.fuerza+=4;
            this.habilidad+=3;
            this.hp++;
        }
        
-       else if(this.object.compareTo("nose")==0){
+       else if(this.object.compareTo("Disruptor romulano")==0){
            this.hp+=4;
            this.agilidad+=2;
        }

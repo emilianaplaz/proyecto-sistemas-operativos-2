@@ -13,16 +13,19 @@ import Clases.Studio;
  */
 public class Global {
 
-    private static String[] starWars = {}; // LLenar arreglo con personajes de StarWars
-    private static String[] starTrek = {}; // LLenar arreglo con personajes de StarTrek
+    private static String[] starWars = {"bb8", "c3po", "chewbaca", "darthmaul", "darthvader", "dooku", "finn", "hansolo", "jarjar",
+    "kylorean", "leia", "luke", "obiwan", "padme", "palpatine", "poe", "r2d2", "rey", "stormtrooper", "yoda"}; // Personajes de Star Wars
+    
+    private static String[] starTrek = {"barclay", "burnham", "data", "dax", "garak", "janeway", "neelix", "nerys", "picard", "riker",
+    "scooty", "seven-of-nine", "sisko", "tucker", "tuvok", "uhura", "worf", "mccoy", "spok", "kirk"}; // Personajes de StarTrek
 
-    private static String[] objetos = {}; // LLenar arreglo con objetos para los personajes.
+    private static String[] objetos = {"Lightsaber", "Pistola", "La Fuerza", "Blaster", "Phaser", "Espada Bat´telh", "Lirpa", "Puñal D´kTahg", "Látigo láser", "Disruptor romulano"}; 
 
     private static Studio studioStarWars;
     private static Studio studioStarTrek;
 
     private static Lista ganadores = new Lista(); //lista de ganadores
-
+    
     public static String[] getStarWars() {
         return starWars;
     }
