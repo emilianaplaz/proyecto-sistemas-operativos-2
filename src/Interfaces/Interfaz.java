@@ -5,19 +5,76 @@
 package Interfaces;
 
 import javax.swing.*;
+import Clases.Admin;
+import Clases.Studio;
+import Clases.IA;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 
 /**
  *
  * @author emilianaplaz
  */
 public class Interfaz extends javax.swing.JFrame {
+    
+   
+    
+    Studio starWars = new Studio("StarWars");
+    Studio starTrek = new Studio("StarTrek");
+    IA ia = new IA();
+    Admin admin = new Admin(ia);
+    boolean iniciado = false;
+    
+    
 
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         initComponents();
+        
+        Global.setStudioStarTrek(starTrek);
+        Global.setStudioStarWars(starWars);
+        this.setLocationRelativeTo(null); 
     }
+    
+//    Marcadores
+    
+    public static JLabel getMarcadorStarTrek() {
+        return marcadorStarTrek;
+    }
+
+    public static void setMarcadorStarTrek(JLabel marcadorStarTrek) {
+        Interfaz.marcadorStarTrek = marcadorStarTrek;
+    }
+
+    public static JLabel getMarcadorStarWars() {
+        return marcadorStarWars;
+    }
+
+    public static void setMarcadorStarWars(JLabel marcadorStarWars) {
+        Interfaz.marcadorStarWars = marcadorStarWars;
+    }
+    
+    
+    
+//    Estado de la IA
+    
+    public static JLabel getIA_State() {
+        return IA_State;
+    }
+
+    public static void setIA_State(JLabel IA_State) {
+        Interfaz.IA_State = IA_State;
+    }
+
+ 
+    
+    
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,13 +87,12 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        Character_Icon_starwars = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        Character_Icon_startrek = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -53,6 +109,12 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        marcadorStarWars = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        marcadorStarTrek = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        IA_State = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,20 +125,20 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel6.setText("vs");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        Character_Icon_starwars.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Character_Icon_starwarsLayout = new javax.swing.GroupLayout(Character_Icon_starwars);
+        Character_Icon_starwars.setLayout(Character_Icon_starwarsLayout);
+        Character_Icon_starwarsLayout.setHorizontalGroup(
+            Character_Icon_starwarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Character_Icon_starwarsLayout.setVerticalGroup(
+            Character_Icon_starwarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 240, 320));
+        getContentPane().add(Character_Icon_starwars, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 240, 320));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -92,11 +154,6 @@ public class Interfaz extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Krungthep", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("star wars");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Krungthep", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,19 +178,19 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(102, 102, 102));
         jPanel5.setLayout(null);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Character_Icon_startrekLayout = new javax.swing.GroupLayout(Character_Icon_startrek);
+        Character_Icon_startrek.setLayout(Character_Icon_startrekLayout);
+        Character_Icon_startrekLayout.setHorizontalGroup(
+            Character_Icon_startrekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 239, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Character_Icon_startrekLayout.setVerticalGroup(
+            Character_Icon_startrekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 333, Short.MAX_VALUE)
         );
 
-        jPanel5.add(jPanel6);
-        jPanel6.setBounds(725, 104, 239, 333);
+        jPanel5.add(Character_Icon_startrek);
+        Character_Icon_startrek.setBounds(725, 104, 239, 333);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -295,6 +352,52 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel5.add(jLabel12);
         jLabel12.setBounds(1030, 360, 140, 33);
 
+        marcadorStarWars.setFont(new java.awt.Font("Krungthep", 1, 36)); // NOI18N
+        marcadorStarWars.setForeground(new java.awt.Color(255, 255, 255));
+        marcadorStarWars.setText("0");
+        jPanel5.add(marcadorStarWars);
+        marcadorStarWars.setBounds(560, 40, 90, 47);
+
+        jLabel13.setFont(new java.awt.Font("Krungthep", 1, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("star wars");
+        jPanel5.add(jLabel13);
+        jLabel13.setBounds(360, 40, 189, 47);
+
+        marcadorStarTrek.setFont(new java.awt.Font("Krungthep", 1, 36)); // NOI18N
+        marcadorStarTrek.setForeground(new java.awt.Color(255, 255, 255));
+        marcadorStarTrek.setText("0");
+        jPanel5.add(marcadorStarTrek);
+        marcadorStarTrek.setBounds(930, 40, 90, 47);
+
+        jLabel7.setText("Estado IA: ");
+
+        IA_State.setText("Esperando...");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jLabel7)
+                .addGap(118, 118, 118)
+                .addComponent(IA_State)
+                .addContainerGap(233, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(IA_State))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        jPanel5.add(jPanel1);
+        jPanel1.setBounds(360, 510, 610, 40);
+
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, 810));
 
         pack();
@@ -336,10 +439,14 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Character_Icon_startrek;
+    private javax.swing.JPanel Character_Icon_starwars;
+    private static javax.swing.JLabel IA_State;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -357,9 +464,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private static javax.swing.JLabel marcadorStarTrek;
+    private static javax.swing.JLabel marcadorStarWars;
     // End of variables declaration//GEN-END:variables
 }

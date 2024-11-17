@@ -31,15 +31,16 @@ public class Global {
     }
 
     public static void setStarWars(String[] aStarWars) {
-        starWars = aStarWars;
+        Global.starWars = aStarWars;
     }
-
+    
+ 
     public static String[] getStarTrek() {
         return starTrek;
     }
 
     public static void setStarTrek(String[] aStarTrek) {
-        starTrek = aStarTrek;
+        Global.starTrek = aStarTrek;
     }
 
     public static String[] getObjetos() {
