@@ -345,6 +345,8 @@ public class Interfaz extends javax.swing.JFrame {
         ListaGanadores = new javax.swing.JTextArea();
         Character_Icon_starwars = new javax.swing.JLabel();
         Character_Icon_startrek = new javax.swing.JLabel();
+        Iniciar = new javax.swing.JButton();
+        Velocidad = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -471,7 +473,7 @@ public class Interfaz extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(IA_State))
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -732,11 +734,91 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel5.add(Character_Icon_startrek);
         Character_Icon_startrek.setBounds(740, 110, 239, 333);
 
+        Iniciar.setText("Iniciar");
+        Iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IniciarActionPerformed(evt);
+            }
+        });
+        jPanel5.add(Iniciar);
+        Iniciar.setBounds(780, 710, 72, 23);
+        jPanel5.add(Velocidad);
+        Velocidad.setBounds(960, 700, 64, 23);
+
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, 810));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
+        // TODO add your handling code here:
+        if(iniciado == false){
+            iniciado = true;
+            
+            for (int i = 0; i < 20; i++) {
+            int random=(int)(Math.random()*9);
+            Global.getStudioStarTrek().CreateCharacter(Global.getStarTrek()[i], Global.getObjetos()[random],admin.getIdCh());
+            admin.setIdCh(admin.getIdCh()+1);
+            random=(int)(Math.random()*9);
+            Global.getStudioStarWars().CreateCharacter(Global.getStarWars()[i], Global.getObjetos()[random],admin.getIdCh());
+            admin.setIdCh(admin.getIdCh()+1);
+            }
+            getPrioridad1StarTrek().setText(Global.getStudioStarTrek().getPrioridad1().imprimir());
+            getPrioridad2StarTrek().setText(Global.getStudioStarTrek().getPrioridad2().imprimir());
+            getPrioridad3StarTrek().setText(Global.getStudioStarTrek().getPrioridad3().imprimir());
+            getRefuerzoStarTrek().setText(Global.getStudioStarTrek().getRefuerzo().imprimir());
+            
+            getPrioridad1StarWars().setText(Global.getStudioStarWars().getPrioridad1().imprimir());
+            getPrioridad2StarWars().setText(Global.getStudioStarWars().getPrioridad2().imprimir());
+            getPrioridad3StarWars().setText(Global.getStudioStarWars().getPrioridad3().imprimir());
+            getRefuerzoStarWars().setText(Global.getStudioStarWars().getRefuerzo().imprimir());
+
+        
+//            System.out.println("Prioridad 1 Cartoon");
+//            Global.getCN().getPrioridad1().imprimir();
+//
+//            System.out.println("Prioridad 2 Cartoon");
+//            Global.getCN().getPrioridad2().imprimir();
+//
+//            System.out.println("Prioridad 3 Cartoon");
+//            Global.getCN().getPrioridad3().imprimir();
+//
+//            System.out.println("Prioridad 1 Nick");
+//            Global.getNick().getPrioridad1().imprimir();
+//
+//            System.out.println("Prioridad 2 Nick");
+//            Global.getNick().getPrioridad2().imprimir();
+//
+//            System.out.println("Prioridad 3 Nick");
+//            Global.getNick().getPrioridad3().imprimir();
+            
+            this.Velocidad.setValue(10);
+            admin.ia.setWaitingTime(((int)this.Velocidad.getValue())*1000);
+            admin.start();
+            //ia.start();
+        }else{
+            JOptionPane.showMessageDialog(null, "Ya la simulación empezó!");
+        }  
+        
+    }//GEN-LAST:event_IniciarActionPerformed
+    
+    
+    
+    private void VelocidadStateChanged(javax.swing.event.ChangeEvent evt) {                                       
+        // TODO add your handling code here:
+        if(iniciado == true){
+            if((int)this.Velocidad.getValue() <= 0){
+                this.Velocidad.setValue(1);
+                this.repaint();
+            }else{
+                //Aqui va a estar el codigo para que el tiempo cambie justo cuando el user lo cambie
+                admin.ia.setWaitingTime(((int)this.Velocidad.getValue())*1000);
+            }
+        }else{
+            this.Velocidad.setValue(1);
+            this.repaint();
+        }
+    }  
     /**
      * @param args the command line arguments
      */
@@ -776,7 +858,7 @@ public class Interfaz extends javax.swing.JFrame {
     private static javax.swing.JLabel Agilidad_StarTrek;
     private static javax.swing.JLabel Agilidad_StarWars;
     private static javax.swing.JLabel Character_Icon_startrek;
-    private javax.swing.JLabel Character_Icon_starwars;
+    private static javax.swing.JLabel Character_Icon_starwars;
     private static javax.swing.JLabel Fuerza_StarTrek;
     private static javax.swing.JLabel Fuerza_StarWars;
     private static javax.swing.JLabel HP_StarTrek;
@@ -784,6 +866,7 @@ public class Interfaz extends javax.swing.JFrame {
     private static javax.swing.JLabel Habilidad_StarTrek;
     private static javax.swing.JLabel Habilidad_StarWars;
     private static javax.swing.JLabel IA_State;
+    private javax.swing.JButton Iniciar;
     private static javax.swing.JTextArea ListaGanadores;
     private static javax.swing.JLabel Objeto_StarTrek;
     private static javax.swing.JLabel Objeto_StarWars;
@@ -796,6 +879,7 @@ public class Interfaz extends javax.swing.JFrame {
     private static javax.swing.JTextArea RefuerzoStarTrek;
     private static javax.swing.JTextArea RefuerzoStarWars;
     private static javax.swing.JLabel Resultado_Combate;
+    private javax.swing.JSpinner Velocidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
