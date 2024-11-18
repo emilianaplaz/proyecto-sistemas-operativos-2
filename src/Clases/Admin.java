@@ -45,17 +45,17 @@ public class Admin extends Thread {
                 if (Global.getStudioStarTrek().getPrioridad1().getSize() > 0) {
                     // Si hay disponible personajes en la cola de prioridad 1, se toma el primero de esta cola.
                     this.ia.setP1(Global.getStudioStarTrek().getPrioridad1().desencolar().getElement());
-                    Interfaz.getPrioridad1StudioStarTrek().setText(Global.getStudioStarTrek().getPrioridad1().imprimir());
+                    Interfaz.getPrioridad1StarTrek().setText(Global.getStudioStarTrek().getPrioridad1().imprimir());
 
                 } else if (Global.getStudioStarTrek().getPrioridad2().getSize() > 0) {
                     // Si hay disponible personajes en la cola de prioridad 2 y no de ninguna superior, se toma el primero de esta cola.
                     this.ia.setP1(Global.getStudioStarTrek().getPrioridad2().desencolar().getElement());
-                    Interfaz.getPrioridad2StudioStarTrek().setText(Global.getStudioStarTrek().getPrioridad2().imprimir());
+                    Interfaz.getPrioridad2StarTrek().setText(Global.getStudioStarTrek().getPrioridad2().imprimir());
 
                 } else if (Global.getStudioStarTrek().getPrioridad3().getSize() > 0) {
                     // Si hay disponible personajes en la cola de prioridad 3 y no de ninguna superior, se toma el primero de esta cola.
                     this.ia.setP1(Global.getStudioStarTrek().getPrioridad3().desencolar().getElement());
-                    Interfaz.getPrioridad3StudioStarTrek().setText(Global.getStudioStarTrek().getPrioridad3().imprimir());
+                    Interfaz.getPrioridad3StarTrek().setText(Global.getStudioStarTrek().getPrioridad3().imprimir());
                 }
                 System.out.println("Se escogio un de personaje de StarTrek");
                 mutex1.release(); //Se cierra la zona crítica de StarTrek 
@@ -68,17 +68,17 @@ public class Admin extends Thread {
                 if (Global.getStudioStarWars().getPrioridad1().getSize() > 0) {
                     // Si hay disponible personajes en la cola de prioridad 1, se toma el primero de esta cola.
                     this.ia.setP2(Global.getStudioStarWars().getPrioridad1().desencolar().getElement());
-                    Interfaz.getPrioridad1StudioStarWars().setText(Global.getStudioStarWars().getPrioridad1().imprimir());
+                    Interfaz.getPrioridad1StarWars().setText(Global.getStudioStarWars().getPrioridad1().imprimir());
 
                 } else if (Global.getStudioStarWars().getPrioridad2().getSize() > 0) {
                     // Si hay disponible personajes en la cola de prioridad 2 y no de ninguna superior, se toma el primero de esta cola.
                     this.ia.setP2(Global.getStudioStarWars().getPrioridad2().desencolar().getElement());
-                    Interfaz.getPrioridad2StudioStarWars().setText(Global.getStudioStarWars().getPrioridad2().imprimir());
+                    Interfaz.getPrioridad2StarWars().setText(Global.getStudioStarWars().getPrioridad2().imprimir());
 
                 } else if (Global.getStudioStarWars().getPrioridad3().getSize() > 0) {
                     // Si hay disponible personajes en la cola de prioridad 3 y no de ninguna superior, se toma el primero de esta cola.
                     this.ia.setP2(Global.getStudioStarWars().getPrioridad3().desencolar().getElement());
-                    Interfaz.getPrioridad3StudioStarWars().setText(Global.getStudioStarWars().getPrioridad3().imprimir());
+                    Interfaz.getPrioridad3StarWars().setText(Global.getStudioStarWars().getPrioridad3().imprimir());
                 }
                 System.out.println("Se escogio un personaje de StarWars");
                 mutex2.release(); //Se cierra la zona crítica de StarWars
@@ -108,15 +108,15 @@ public class Admin extends Thread {
                         Nodo character = Global.getStudioStarTrek().getRefuerzo().desencolar();
                         Global.getStudioStarTrek().getPrioridad1().encolar(character.getElement());
                         // Actualizamos las colas en el Interfaz.
-                        Interfaz.getRefuerzoStudioStarTrek().setText(Global.getStudioStarTrek().getRefuerzo().imprimir());
-                        Interfaz.getPrioridad1StudioStarTrek().setText(Global.getStudioStarTrek().getPrioridad1().imprimir());
+                        Interfaz.getRefuerzoStarTrek().setText(Global.getStudioStarTrek().getRefuerzo().imprimir());
+                        Interfaz.getPrioridad1StarTrek().setText(Global.getStudioStarTrek().getPrioridad1().imprimir());
                     } else {
                         // Si no se manda al fondo de la cola de refuerzo.
                         System.out.println("Un personaje de StarTrek se mandó al final de la cola de refuerzos");
                         Nodo character = Global.getStudioStarTrek().getRefuerzo().desencolar();
                         Global.getStudioStarTrek().getRefuerzo().encolar(character.getElement());
                         // Actualizamos la cola en el Interfaz.
-                        Interfaz.getRefuerzoStudioStarTrek().setText(Global.getStudioStarTrek().getRefuerzo().imprimir());
+                        Interfaz.getRefuerzoStarTrek().setText(Global.getStudioStarTrek().getRefuerzo().imprimir());
                     }
                     mutex1.release();
                 }
@@ -131,14 +131,14 @@ public class Admin extends Thread {
                         Nodo character = Global.getStudioStarWars().getRefuerzo().desencolar();
                         Global.getStudioStarWars().getPrioridad1().encolar(character.getElement());
                         // Actualizamos las colas en el Interfaz.
-                        Interfaz.getRefuerzoStudioStarWars().setText(Global.getStudioStarWars().getRefuerzo().imprimir());
-                        Interfaz.getPrioridad1StudioStarWars().setText(Global.getStudioStarWars().getPrioridad1().imprimir());
+                        Interfaz.getRefuerzoStarWars().setText(Global.getStudioStarWars().getRefuerzo().imprimir());
+                        Interfaz.getPrioridad1StarWars().setText(Global.getStudioStarWars().getPrioridad1().imprimir());
                     } else {
                         System.out.println("Un personaje de StudioStarWars se mandó al final de la cola de refuerzos");
                         Nodo character = Global.getStudioStarWars().getRefuerzo().desencolar();
                         Global.getStudioStarWars().getRefuerzo().encolar(character.getElement());
                         // Actualizamos la cola en el Interfaz.
-                        Interfaz.getRefuerzoStudioStarWars().setText(Global.getStudioStarWars().getRefuerzo().imprimir());
+                        Interfaz.getRefuerzoStarWars().setText(Global.getStudioStarWars().getRefuerzo().imprimir());
                     }
                     mutex2.release();
                 }
@@ -209,8 +209,8 @@ public class Admin extends Thread {
             }
         }
         // Actualizamos las colas de prioridad en la interfaz.
-        Interfaz.getPrioridad1StudioStarWars().setText(Global.getStudioStarWars().getPrioridad1().imprimir());
-        Interfaz.getPrioridad2StudioStarWars().setText(Global.getStudioStarWars().getPrioridad2().imprimir());
+        Interfaz.getPrioridad1StarWars().setText(Global.getStudioStarWars().getPrioridad1().imprimir());
+        Interfaz.getPrioridad2StarWars().setText(Global.getStudioStarWars().getPrioridad2().imprimir());
 
         // StarWars cola de prioridad 3.
         for (Nodo aux = Global.getStudioStarWars().getPrioridad3().getFirst(); aux != null; aux = aux.getNext()) {
@@ -234,8 +234,8 @@ public class Admin extends Thread {
             }
         }
         // Actualizamos las colas de prioridad en la interfaz.
-        Interfaz.getPrioridad2StudioStarWars().setText(Global.getStudioStarWars().getPrioridad2().imprimir());
-        Interfaz.getPrioridad3StudioStarWars().setText(Global.getStudioStarWars().getPrioridad3().imprimir());
+        Interfaz.getPrioridad2StarWars().setText(Global.getStudioStarWars().getPrioridad2().imprimir());
+        Interfaz.getPrioridad3StarWars().setText(Global.getStudioStarWars().getPrioridad3().imprimir());
 
         //  ***STAR TREK***
         // StarTrek cola de prioridad 2.
@@ -260,8 +260,8 @@ public class Admin extends Thread {
             }
         }
         // Actualizamos las colas de prioridad en la interfaz.
-        Interfaz.getPrioridad1StudioStarTrek().setText(Global.getStudioStarTrek().getPrioridad1().imprimir());
-        Interfaz.getPrioridad2StudioStarTrek().setText(Global.getStudioStarTrek().getPrioridad2().imprimir());
+        Interfaz.getPrioridad1StarTrek().setText(Global.getStudioStarTrek().getPrioridad1().imprimir());
+        Interfaz.getPrioridad2StarTrek().setText(Global.getStudioStarTrek().getPrioridad2().imprimir());
 
         // StarTrek cola de prioridad 3.
         for (Nodo aux = Global.getStudioStarTrek().getPrioridad3().getFirst(); aux != null; aux = aux.getNext()) {
@@ -285,8 +285,8 @@ public class Admin extends Thread {
             }
         }
         // Actualizamos las colas de prioridad en la interfaz.
-        Interfaz.getPrioridad2StudioStarTrek().setText(Global.getStudioStarTrek().getPrioridad2().imprimir());
-        Interfaz.getPrioridad3StudioStarTrek().setText(Global.getStudioStarTrek().getPrioridad3().imprimir());
+        Interfaz.getPrioridad2StarTrek().setText(Global.getStudioStarTrek().getPrioridad2().imprimir());
+        Interfaz.getPrioridad3StarTrek().setText(Global.getStudioStarTrek().getPrioridad3().imprimir());
     }
 
     public int getIdCh() {
@@ -299,49 +299,49 @@ public class Admin extends Thread {
 
     public void changeIcons() {
         // Cambiamos las imagenes de los personajes.
-        Interfaz.getCharacterIconStudioStarWars().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/" + this.ia.getP2().getName() + ".png")));
-        Interfaz.getCharacterIconStudioStarTrek().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/" + this.ia.getP1().getName() + ".png")));
+        Interfaz.getCharacterIconStarWars().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/" + this.ia.getP2().getName() + ".png")));
+        Interfaz.getCharacterIconStarTrek().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/" + this.ia.getP1().getName() + ".png")));
     }
 
     public void changeStatsStudioStarTrek() {
         // Cambiamos las estadisticas del personaje de StatTrek en la interfaz.
-        Interfaz.getObjectStudioStarTrek().setText(this.ia.getP1().getObject());
-        Interfaz.getAbilityStudioStarTrek().setText(Integer.toString(this.ia.getP1().getHabilidad()));
-        Interfaz.getStrengthStudioStarTrek().setText(Integer.toString(this.ia.getP1().getFuerza()));
-        Interfaz.getHPStudioStarTrek().setText(Integer.toString(this.ia.getP1().getHp()));
-        Interfaz.getAgilityStudioStarTrek().setText(Integer.toString(this.ia.getP1().getAgilidad()));
+        Interfaz.getObjeto_StarTrek().setText(this.ia.getP1().getObject());
+        Interfaz.getHabilidad_StarTrek().setText(Integer.toString(this.ia.getP1().getHabilidad()));
+        Interfaz.getFuerza_StarTrek().setText(Integer.toString(this.ia.getP1().getFuerza()));
+        Interfaz.getHP_StarTrek().setText(Integer.toString(this.ia.getP1().getHp()));
+        Interfaz.getAgilidad_StarTrek().setText(Integer.toString(this.ia.getP1().getAgilidad()));
     }
 
     public void changeStatsStudioStarWars() {
         // Cambiamos las estadisticas del personaje de StatWars en la interfaz.
-        Interfaz.getObjectStudioStarWars().setText(this.ia.getP2().getObject());
-        Interfaz.getAbilityStudioStarWars().setText(Integer.toString(this.ia.getP2().getHabilidad()));
-        Interfaz.getStrengthStudioStarWars().setText(Integer.toString(this.ia.getP2().getFuerza()));
-        Interfaz.getHPStudioStarWars().setText(Integer.toString(this.ia.getP2().getHp()));
-        Interfaz.getAgilityStudioStarWars().setText(Integer.toString(this.ia.getP2().getAgilidad()));
+        Interfaz.getObjeto_StarWars().setText(this.ia.getP2().getObject());
+        Interfaz.getHabilidad_StarWars().setText(Integer.toString(this.ia.getP2().getHabilidad()));
+        Interfaz.getFuerza_StarWars().setText(Integer.toString(this.ia.getP2().getFuerza()));
+        Interfaz.getHP_StarWars().setText(Integer.toString(this.ia.getP2().getHp()));
+        Interfaz.getAgilidad_StarWars().setText(Integer.toString(this.ia.getP2().getAgilidad()));
     }
 
     public void clearStats() {
         // Quitamos las estadisticas del interfaz.
         
         // STAR TREK
-        Interfaz.getObjectStudioStarTrek().setText("-");
-        Interfaz.getAbilityStudioStarTrek().setText("-");
-        Interfaz.getStrengthStudioStarTrek().setText("-");
-        Interfaz.getHPStudioStarTrek().setText("-");
-        Interfaz.getAgilityStudioStarTrek().setText("-");
+        Interfaz.getObjeto_StarTrek().setText("-");
+        Interfaz.getHabilidad_StarTrek().setText("-");
+        Interfaz.getFuerza_StarTrek().setText("-");
+        Interfaz.getHP_StarTrek().setText("-");
+        Interfaz.getAgilidad_StarTrek().setText("-");
         
         // STAR WARS
-        Interfaz.getObjectStudioStarWars().setText("-");
-        Interfaz.getAbilityStudioStarWars().setText("-");
-        Interfaz.getStrengthStudioStarWars().setText("-");
-        Interfaz.getHPStudioStarWars().setText("-");
-        Interfaz.getAgilityStudioStarWars().setText("-");
+        Interfaz.getObjeto_StarWars().setText("-");
+        Interfaz.getHabilidad_StarWars().setText("-");
+        Interfaz.getFuerza_StarWars().setText("-");
+        Interfaz.getHP_StarWars().setText("-");
+        Interfaz.getAgilidad_StarWars().setText("-");
     }
 
     public void clearIcons() {
-        Interfaz.getCharacterIconStudioStarWars().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
-        Interfaz.getCharacterIconStudioStarTrek().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
+        Interfaz.getCharacterIconStarWars().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
+        Interfaz.getCharacterIconStarTrek().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
     }
 
     public void checkEmpty() {
