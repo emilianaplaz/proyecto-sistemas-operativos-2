@@ -152,16 +152,16 @@ public class IA extends Thread {
         if (ventajaP1 > ventajaP2) {
             // GANA P1.
             System.out.println(p1.getName() + " es el ganador");
-            Interfaz.getListaGanadores().append("StarTrek-" + p1.getId() + '\n');
-            Interfaz.getCharacterIconStarWars().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/placeholder.png"))); // Se quita la foto del perdedor
+            Interfaz.getListaGanadores().append("StarTrek | " + p1.getName() + " | " + "id: " + p1.getId() + '\n');
+            Interfaz.getCharacterIconStarWars().setIcon(new ImageIcon(getClass().getResource("/Imagenes/placeholder.png"))); // Se quita la foto del perdedor
             this.StarTrekGana++;
             Interfaz.getMarcadorStarTrek().setText(Integer.toString(this.StarTrekGana));
             return p1;
         } else {
             // GANA P2.
             System.out.println(p2.getName() + " es el ganador");
-            Interfaz.getListaGanadores().append("StarWars-" + p2.getId() + '\n');
-            Interfaz.getCharacterIconStarTrek().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/placeholder.png"))); // Se quita la foto del Perdedor
+            Interfaz.getListaGanadores().append("StarWars | " + p2.getName() + " | " + "id: " + p2.getId() + '\n');
+            Interfaz.getCharacterIconStarTrek().setIcon(new ImageIcon(getClass().getResource("/Imagenes/placeholder.png"))); // Se quita la foto del Perdedor
             this.StarWarsGana++;
             Interfaz.getMarcadorStarWars().setText(Integer.toString(this.StarWarsGana));
 

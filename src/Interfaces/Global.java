@@ -14,10 +14,10 @@ import Clases.Studio;
 public class Global {
 
     private static String[] starWars = {"bb8", "c3po", "chewbaca", "darthmaul", "darthvader", "dooku", "finn", "hansolo", "jarjar",
-    "kylorean", "leia", "luke", "obiwan", "padme", "palpatine", "poe", "r2d2", "rey", "stormtrooper", "yoda"}; // Personajes de Star Wars
+    "kyloren", "leia", "luke", "obiwan", "padme", "palpatine", "poe", "r2d2", "rey", "stormtrooper", "yoda"}; // Personajes de Star Wars
     
     private static String[] starTrek = {"barclay", "burnham", "data", "dax", "garak", "janeway", "neelix", "nerys", "picard", "riker",
-    "scooty", "seven-of-nine", "sisko", "tucker", "tuvok", "uhura", "worf", "mccoy", "spok", "kirk"}; // Personajes de StarTrek
+    "scotty", "seven-of-nine", "sisko", "tucker", "tuvok", "uhura", "worf", "mccoy", "spok", "kirk"}; // Personajes de StarTrek
 
     private static String[] objetos = {"Lightsaber", "Pistola", "La Fuerza", "Blaster", "Phaser", "Espada Bat´telh", "Lirpa", "Puñal D´kTahg", "Látigo láser", "Disruptor romulano"}; 
 

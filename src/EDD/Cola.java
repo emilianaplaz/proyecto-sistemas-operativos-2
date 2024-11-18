@@ -123,10 +123,9 @@ public class Cola {
     }
     
     public String imprimir() {
-        String contenido="id:\n";
+        String contenido="";
         for (Nodo aux=getFirst(); aux!=null; aux=aux.getNext()) {
-            contenido+=aux.getElement().getId()+"\n";
-            //System.out.println(aux.getElement().getId()+" "+aux.getElement().getName() +" "+aux.getElement().getObject());
+            contenido += "id: " + aux.getElement().getId() + " | " + aux.getElement().getName() + "\n";
         }
         return contenido;
     }

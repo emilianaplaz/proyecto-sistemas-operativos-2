@@ -299,8 +299,10 @@ public class Admin extends Thread {
 
     public void changeIcons() {
         // Cambiamos las imagenes de los personajes.
-        Interfaz.getCharacterIconStarWars().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/" + this.ia.getP2().getName() + ".png")));
-        Interfaz.getCharacterIconStarTrek().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/" + this.ia.getP1().getName() + ".png")));
+        System.out.println(this.ia.getP1().getName());
+        System.out.println(this.ia.getP2().getName());
+        Interfaz.getCharacterIconStarWars().setIcon(new ImageIcon(getClass().getResource("/Imagenes/" + this.ia.getP2().getName() + ".png")));
+        Interfaz.getCharacterIconStarTrek().setIcon(new ImageIcon(getClass().getResource("/Imagenes/" + this.ia.getP1().getName() + ".png")));
     }
 
     public void changeStatsStudioStarTrek() {
@@ -340,8 +342,8 @@ public class Admin extends Thread {
     }
 
     public void clearIcons() {
-        Interfaz.getCharacterIconStarWars().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
-        Interfaz.getCharacterIconStarTrek().setIcon(new ImageIcon(getClass().getResource("/InterfaceImages/Yugi.png")));
+        Interfaz.getCharacterIconStarWars().setIcon(new ImageIcon(getClass().getResource("/Imagenes/placeholder.png")));
+        Interfaz.getCharacterIconStarTrek().setIcon(new ImageIcon(getClass().getResource("/Imagenes/placeholder.png")));
     }
 
     public void checkEmpty() {
